@@ -1,5 +1,7 @@
 package com.example.orderservice.model;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 
@@ -8,27 +10,30 @@ import java.util.List;
 
 @Data // adds getters and setters
 public class OrderModel {
-    @NotNull
     private int id;
-    //    @NotNull
+    @NotNull
     private Date date;
-    //    @NotNull
+    @Email
     private String email;
-    //    @NotNull
+    @NotBlank(message = "firstName is mandatory" )
     private String firstName;
-    //    @NotNull
+    @NotBlank
     private String lastName;
     //    @NotNull
-    private List<LineItemModel> lineItems;
+//    private List<LineItemModel> lineItems;
 
     public OrderModel() {}
 
-    public OrderModel( Date date, String email, String firstName, String lastName, List<LineItemModel> lineItems) {
+    public OrderModel( Date date, String email, String firstName, String lastName) {
         this.date = date;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.lineItems = lineItems;
-        this.lineItems.forEach(li -> li.setOrder(this));
+//        this.lineItems = lineItems;
+//        this.lineItems.forEach(li -> li.setOrder(this));
+    }
+
+    public OrderModel(OrderModel otherOrder){
+        this.date = otherOrder.getDate();
     }
 }
