@@ -21,18 +21,18 @@ public class OrderModel {
     private String firstName;
     @NotBlank
     private String lastName;
-//    @NotEmpty
-//    private List<LineItemModel> lineItems;
+    @NotEmpty
+    private List<LineItemModel> lineItems;
 
     public OrderModel() {
     }
 
-    public OrderModel( Date date, String email, String firstName, String lastName) {
+    public OrderModel( Date date, String email, String firstName, String lastName,List<LineItemModel> lineItems) {
         this.date = date;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-//        this.lineItems = lineItems;
+        this.lineItems = lineItems;
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.consumerservice.model;
+package com.example.consumerservice.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -20,7 +20,8 @@ public class LineItemModel {
     public LineItemModel() {
     }
 
-    public LineItemModel(Long externalProductId, String name, String description, Long price, Integer quantity) {
+    public LineItemModel(Long orderId, Long externalProductId, String name, String description, Long price, Integer quantity) {
+        this.orderId = orderId;
         this.productId = externalProductId;
         this.productName = name;
         this.productDescription = description;

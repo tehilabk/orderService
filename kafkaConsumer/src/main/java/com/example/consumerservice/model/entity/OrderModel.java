@@ -1,4 +1,4 @@
-package com.example.consumerservice.model;
+package com.example.consumerservice.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -19,20 +19,12 @@ public class OrderModel {
 //    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    private String email;
-
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
+    private Long userId;
 
     public OrderModel(){}
-    public OrderModel(Long storeId, Date date, String email, String firstName, String lastName) {
+    public OrderModel(Long storeId, Date date, Long userId) {
         this.storeId = storeId;
         this.date = date;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.userId = userId;
     }
 }
