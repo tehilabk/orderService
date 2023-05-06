@@ -18,16 +18,16 @@ public class OrderServiceController {
 
     @Autowired
     OrderEventProducer orderEventProducer;
+
+
     @PostMapping("/{storeId}/orders")
     public ResponseEntity<?> createOrder(@PathVariable Long storeId,@Valid @RequestBody OrderModel order) throws JsonProcessingException {
+        order.setStoreId(storeId);
         orderEventProducer.sendOrderEvent(order);
         return ResponseEntity.ok(order);
+
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
-    }
+
 
 }
