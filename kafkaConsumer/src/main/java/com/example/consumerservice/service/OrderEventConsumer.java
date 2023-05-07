@@ -9,15 +9,15 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class OrderEventConsumer extends BaseService{
+public class OrderEventConsumer extends BaseService {
 
     @Autowired
     SaveOrderDataService saveOrderDataService;
 
     @KafkaListener(topics = {"order-event-topic"})
-    public void onMessage(ConsumerRecord<String,String> consumerRecord) throws JsonProcessingException {
+    public void onMessage(ConsumerRecord<String, String> consumerRecord) throws JsonProcessingException {
 
-        log.info("ConsumerRecord : {} ", consumerRecord );
+        log.info("ConsumerRecord : {} ", consumerRecord);
         saveOrderDataService.processOrderEvent(consumerRecord);
 
     }

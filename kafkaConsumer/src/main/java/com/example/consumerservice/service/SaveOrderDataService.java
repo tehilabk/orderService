@@ -6,7 +6,7 @@ import com.example.consumerservice.model.entity.UserModel;
 import com.example.consumerservice.model.input.OrderInputModel;
 import com.example.consumerservice.model.output.OrderCreatedModel;
 import com.example.consumerservice.reposirory.LineItemRepository;
-import com.example.consumerservice.reposirory.OrederRepository;
+import com.example.consumerservice.reposirory.OrderRepository;
 import com.example.consumerservice.reposirory.UserRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class SaveOrderDataService {
     ObjectMapper objectMapper;
 
     @Autowired
-    private OrederRepository orederRepository;
+    private OrderRepository orederRepository;
 
     @Autowired
     private LineItemRepository lineItemRepository;

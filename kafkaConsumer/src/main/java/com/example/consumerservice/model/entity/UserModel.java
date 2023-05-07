@@ -10,12 +10,13 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-
     private String email;
-
     private String firstName;
-
     private String lastName;
+
+    public UserModel() {
+
+    }
 
     public UserModel(String email, String firstName, String lastName) {
         this.email = email;
@@ -23,7 +24,5 @@ public class UserModel {
         this.lastName = lastName;
     }
 
-    public UserModel() {
-
-    }
 }
+

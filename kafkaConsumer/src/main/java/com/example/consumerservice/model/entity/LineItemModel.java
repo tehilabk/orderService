@@ -13,7 +13,7 @@ import java.io.Serializable;
 @IdClass(LineItemModel.class)
 public class LineItemModel implements Serializable {
     @Id
-    private Long  productId;
+    private Long productId;
     @Id
     private Long orderId;
     private String productName;

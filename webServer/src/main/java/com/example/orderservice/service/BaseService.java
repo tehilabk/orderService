@@ -5,6 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BaseService {
+public abstract class BaseService {
     protected Logger logger = LoggerFactory.getLogger(getClass());
 }
