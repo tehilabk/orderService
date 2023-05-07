@@ -4,7 +4,7 @@ Sure, here is a sample README file for the system:
 
 This is a system that enables merchants to feed their purchases data using a REST API and a Kafka consumer. The system saves the orders data into an PostgreSQL database and publishes an applicative event to another Kafka topic.
 
-![image](https://github.com/tehilabk/orderService/projectDiagram.jpeg)
+![image](https://github.com/tehilabk/orderService/blob/master/projectDiagram.PNG)
 
 
 ## Prerequisites
