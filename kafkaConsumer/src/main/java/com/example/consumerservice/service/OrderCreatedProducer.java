@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class OrderCreatedProducer extends BaseService {
+public class OrderCreatedProducer {
     @Value("${kafka.topic.customer}")
     private String topic;
 
@@ -23,10 +23,10 @@ public class OrderCreatedProducer extends BaseService {
     public void sendOrderEvent(OrderCreatedModel order) throws JsonProcessingException {
         try {
             String value = objectMapper.writeValueAsString(order);
-            logger.info(String.format("Producing message -> %s", value));
+            log.info(String.format("Producing message -> %s", value));
             this.kafkaTemplate.send(topic, value);
         } catch (Exception e) {
-            logger.info("Failed to Producing message");
+            log.info("Failed to Producing message");
         }
     }
 
