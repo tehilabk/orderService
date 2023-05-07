@@ -2,14 +2,19 @@ package com.example.consumerservice.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import lombok.Data;
+
+import java.io.Serializable;
 
 @Data
 //@Builder
 @Entity
-public class LineItemModel {
+@IdClass(LineItemModel.class)
+public class LineItemModel implements Serializable {
     @Id
     private Long  productId;
+    @Id
     private Long orderId;
     private String productName;
     private String productDescription;

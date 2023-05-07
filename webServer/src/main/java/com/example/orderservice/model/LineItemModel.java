@@ -6,24 +6,22 @@ import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.validation.annotation.Validated;
 
-@Data // adds getters and setters
+@Data
 public class LineItemModel {
 
-    @NotBlank
+    @NotBlank @NotNull
     private Long  productId;
-    @NotBlank
+    @NotBlank @NotNull
     private String productName;
-    @NotBlank
+    @NotBlank @NotNull
     private String productDescription;
-    @NotNull @Min(0)
+    @NotNull @Min(value = 0)
     private Long productPrice;
-    @NotNull @Min(1)
-    private Integer quantity;
+    @NotNull @Min(value = 1)
+    private int  quantity;
 
-    public LineItemModel() {
-    }
 
-    public LineItemModel(Long  externalProductId, String name, String description, Long price, Integer quantity) {
+    public LineItemModel(Long  externalProductId, String name, String description, Long price, int  quantity) {
         this.productId = externalProductId;
         this.productName = name;
         this.productDescription = description;

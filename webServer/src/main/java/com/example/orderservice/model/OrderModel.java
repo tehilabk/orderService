@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Date;
 import java.util.List;
 
-@Data // adds getters and setters
+@Data
 public class OrderModel {
     @NotNull
     private Long storeId;
@@ -21,11 +21,8 @@ public class OrderModel {
     private String firstName;
     @NotBlank
     private String lastName;
-    @NotEmpty
+    @NotEmpty @NotNull
     private List<LineItemModel> lineItems;
-
-    public OrderModel() {
-    }
 
     public OrderModel( Date date, String email, String firstName, String lastName,List<LineItemModel> lineItems) {
         this.date = date;
