@@ -1,4 +1,3 @@
-Sure, here is a sample README file for the system:
 
 # Merchant Purchase Data System Using Spring Boot
 
