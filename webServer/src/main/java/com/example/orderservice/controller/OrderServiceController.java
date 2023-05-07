@@ -21,7 +21,7 @@ public class OrderServiceController {
 
     @PostMapping("/{storeId}/orders")
     public ResponseEntity<?> createOrder(@PathVariable Long storeId, @Valid @RequestBody OrderModel order) throws JsonProcessingException {
-        if (!orderIsValidate(order)) {
+        if (!orderIsValid(order)) {
             return ResponseEntity.badRequest().build();
         }
         order.setStoreId(storeId);
@@ -31,7 +31,7 @@ public class OrderServiceController {
     }
 
 
-    private boolean orderIsValidate(OrderModel order) {
+    private boolean orderIsValid(OrderModel order) {
         if (order.getLineItems().size() == 0) {
             return false;
         }
