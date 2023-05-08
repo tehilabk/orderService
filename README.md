@@ -1,18 +1,11 @@
 
 # Merchant Purchase Data System Using Spring Boot
 
-This is a system that enables merchants to feed their purchases data using a REST API and a Kafka consumer. The system saves the orders data into an PostgreSQL database and publishes an applicative event to another Kafka topic.
+This service helps merchants to maintain their purchases data. It exposes a REST API to receive requests from merchants, uses a Kafka consumer to handle the requests and save the data to a PostgreSQL DB. The system afterwards publishes an applicative event to another Kafka topic.
 
 ![image](https://github.com/tehilabk/orderService/blob/master/projectDiagram.PNG)
 
 
-## Prerequisites
-
-To run the system, you need to have the following tools installed:
-
-- Docker
-- Java
-- Maven
 
 ## Installation
 
@@ -22,17 +15,16 @@ To run the system, you need to have the following tools installed:
 git clone <repository-url>
 ```
 
-2. Build the application:
+2. Open Windows cmd in the project directory
+
+
+3. Run the application using the script:
 
 ```
-mvn clean install
+start-order-service.bat
 ```
 
-3. Run the application as a Docker container:
-
-```
-docker-compose up
-```
+4. The Server is ready for requests now :)
 
 ## Usage
 
@@ -73,5 +65,13 @@ Example body:
     
 }
 ```
+
+## Prerequisites
+
+To run the system, you need to have the following tools installed:
+
+- Docker
+- Java
+- Maven
 
 
