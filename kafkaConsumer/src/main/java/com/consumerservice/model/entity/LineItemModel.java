@@ -8,10 +8,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-//@Builder
 @Entity
 @IdClass(LineItemModel.class)
 public class LineItemModel implements Serializable {
+
     @Id
     private Long productId;
     @Id
@@ -20,7 +20,6 @@ public class LineItemModel implements Serializable {
     private String productDescription;
     private Long productPrice;
     private Integer quantity;
-
 
     public LineItemModel() {
     }
@@ -33,5 +32,4 @@ public class LineItemModel implements Serializable {
         this.productPrice = price;
         this.quantity = quantity;
     }
-
 }

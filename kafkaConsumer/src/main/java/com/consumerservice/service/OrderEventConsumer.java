@@ -16,10 +16,8 @@ public class OrderEventConsumer {
 
     @KafkaListener(topics = {"order-event-topic"})
     public void onMessage(ConsumerRecord<String, String> consumerRecord) throws JsonProcessingException {
-
         log.info("ConsumerRecord : {} ", consumerRecord);
         saveOrderDataService.processOrderEvent(consumerRecord);
-
     }
 
 }

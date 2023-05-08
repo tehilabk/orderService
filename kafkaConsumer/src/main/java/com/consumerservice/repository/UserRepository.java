@@ -1,4 +1,4 @@
-package com.consumerservice.reposirory;
+package com.consumerservice.repository;
 
 import com.consumerservice.model.entity.UserModel;
 import org.springframework.data.repository.CrudRepository;

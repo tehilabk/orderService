@@ -15,9 +15,6 @@ public class OrderInputModel {
     private String lastName;
     private List<LineItemModel> lineItems;
 
-    public OrderInputModel() {
-    }
-
     public OrderInputModel(Long storeId, Date date, String email, String firstName, String lastName, List<LineItemModel> lineItems) {
         this.storeId = storeId;
         this.date = date;
@@ -25,6 +22,5 @@ public class OrderInputModel {
         this.firstName = firstName;
         this.lastName = lastName;
         this.lineItems = lineItems;
-
     }
 }

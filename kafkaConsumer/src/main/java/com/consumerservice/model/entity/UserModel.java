@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-//@Builder
 @Entity
 public class UserModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -15,7 +15,6 @@ public class UserModel {
     private String lastName;
 
     public UserModel() {
-
     }
 
     public UserModel(String email, String firstName, String lastName) {
@@ -23,6 +22,5 @@ public class UserModel {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
 }
 

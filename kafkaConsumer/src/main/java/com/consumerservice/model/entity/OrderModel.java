@@ -1,15 +1,14 @@
 package com.consumerservice.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-//@Builder
 @Entity
 public class OrderModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;

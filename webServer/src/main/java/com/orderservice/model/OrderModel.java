@@ -1,6 +1,5 @@
 package com.orderservice.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -13,11 +12,11 @@ import java.util.List;
 
 @Data
 public class OrderModel {
+
     @NotNull
     private Long storeId;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Date date;
     @Email
     private String email;
@@ -38,5 +37,15 @@ public class OrderModel {
 
     }
 
+    public boolean isValid() {
+        if (this.getLineItems().size() == 0) {
+            return false;
+        }
+        for (LineItemModel item : this.getLineItems()) {
+            if (!item.isValid())
+                return false;
+        }
+        return true;
+    }
 
 }

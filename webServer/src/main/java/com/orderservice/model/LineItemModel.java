@@ -4,7 +4,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.validation.annotation.Validated;
 
 @Data
 public class LineItemModel {
@@ -25,7 +24,6 @@ public class LineItemModel {
     @Min(value = 1)
     private int quantity;
 
-
     public LineItemModel(Long externalProductId, String name, String description, Long price, int quantity) {
         this.productId = externalProductId;
         this.productName = name;
@@ -34,5 +32,11 @@ public class LineItemModel {
         this.quantity = quantity;
     }
 
-
+    protected boolean isValid() {
+        if (this.getProductName().isEmpty() || this.getProductDescription().isEmpty() ||
+                this.getProductPrice() < 0 || this.getQuantity() < 1) {
+            return false;
+        }
+        return true;
+    }
 }

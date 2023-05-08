@@ -29,5 +29,4 @@ public class OrderCreatedProducer {
             log.info("Failed to Producing message");
         }
     }
-
 }
